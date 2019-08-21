@@ -3,18 +3,18 @@ services:
 
   dev:
     build:
-      context: ${CCG_CONTEXT}
+      context: ${BIOPLATFORMS_CONTEXT}
       dockerfile: Dockerfile
-    image: muccg/${CCG_PROJECT}:${GIT_BRANCH}-${CCG_PATH_TAG}
+    image: bioplatformsaustralia/${BIOPLATFORMS_PROJECT}:${GIT_BRANCH}-${BIOPLATFORMS_PATH_TAG}
 
   prod:
     extends:
       file: docker-compose-build.yml
       service: dev
-    image: muccg/${CCG_PROJECT}:${CCG_PATH_TAG}
+    image: bioplatformsaustralia/${BIOPLATFORMS_PROJECT}:${BIOPLATFORMS_PATH_TAG}
 
   prod-date:
     extends:
       file: docker-compose-build.yml
       service: dev
-    image: muccg/${CCG_PROJECT}:${CCG_PATH_TAG}-${CCG_BUILD_DATE}
+    image: bioplatformsaustralia/${BIOPLATFORMS_PROJECT}:${BIOPLATFORMS_PATH_TAG}-${BIOPLATFORMS_BUILD_DATE}
